@@ -1,13 +1,16 @@
 {
     "Actor":{},
     "Item":{
-        "types":[
-            "arme"
-        ],
-        "weapon":{
-            "degats": 0,
-            "discretion": "",
+        "types":["arme", "protection"],
+        "arme":{
+            "type": "armeafeu",
+            "degats": 1,
+            "discretion": "Visible",
             "options": []
+        },
+        "protection":{
+            "protection":1,
+            "discretion":"Visible"
         }
     }
 }
