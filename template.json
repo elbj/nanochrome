@@ -1,4 +1,13 @@
 {
     "Actor":{},
-    "Item":{}
+    "Item":{
+        "types":[
+            "arme"
+        ],
+        "weapon":{
+            "degats": 0,
+            "discretion": "",
+            "options": []
+        }
+    }
 }
