@@ -1,4 +1,25 @@
 {
     "Actor":{},
-    "Item":{}
+    "Item":{
+        "types":["option", "arme", "protection"],
+        "templates":{
+            "base":{
+                "description":""
+            }
+        },
+        "option":{
+            "templates":["base"],
+            "limite":1
+        },
+        "arme":{
+            "type": "armeafeu",
+            "degats": 1,
+            "discretion": "Visible",
+            "options": []
+        },
+        "protection":{
+            "protection":1,
+            "discretion":"Visible"
+        }
+    }
 }

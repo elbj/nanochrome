@@ -1,0 +1,14 @@
+<form class="{{cssClass}} option" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="128" width="128"/>
+        <div>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <label for="data.limite">{{localize 'nanochrome.option.limite'}}
+                <input name="data.limite" type="number" value="{{data.limite}}" data-dtype="Number"/>
+            </label>
+            <label for="data.description">{{localize 'nanochrome.base.description'}}
+                <textarea name="data.description">{{data.description}}</textarea>
+            </label>
+        </div>
+    </header>
+</form>

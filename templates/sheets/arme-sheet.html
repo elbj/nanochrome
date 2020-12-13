@@ -1,0 +1,34 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="128" width="128"/>
+        <div>
+            <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
+            <table>
+                <tr>
+                    <th>{{localize "nanochrome.arme.type"}}</th>
+                    <td>
+                        <select name="data.type">
+                            {{#select data.type}}
+                            {{#each config.armeTypes as |name type|}}
+                            <option value="{{type}}">{{name}}</option>
+                            {{/each}}
+                            {{/select}}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>{{localize "nanochrome.arme.degats"}}</th>
+                    <td>
+                        <input name="data.degats" type="number" value="{{data.degats}}" placeholder="{{localize 'nanochrome.arme.degats'}}" data-dtype="Number"/>
+                    </td>            
+                </tr>
+                <tr>
+                    <th>{{localize "nanochrome.arme.discretion"}}</th>
+                    <td>
+                        <input name="data.discretion" type="text" value="{{data.discretion}}" placeholder="{{localize 'nanochrome.arme.discretion'}}"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </header>
+</form>

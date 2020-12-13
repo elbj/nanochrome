@@ -1,0 +1,17 @@
+.sheet-header img{
+    width: 128px;
+    height: 128px !important;
+}
+
+.sheet form select{
+    width: calc(100% - 2px);
+}
+
+.sheet form .sheet-header {
+    height: 100%;
+}
+
+.sheet .option textarea{
+    width: calc(100% - 2px);
+    min-height: 128px;
+}

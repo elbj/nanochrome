@@ -1,0 +1,20 @@
+{
+    "nanochrome":{
+        "arme":{
+            "type":"Type",
+            "degats":"Dégats",
+            "discretion":"Discrétion",
+            "options":"Options",
+            "types":{
+                "armedecorpsacorps":"Arme de corps à corps",
+                "armeafeu":"Arme à feu"
+            }
+        },
+        "base":{
+            "description":"Description"
+        },
+        "option":{
+            "limite":"Limite"
+        }
+    }
+}
