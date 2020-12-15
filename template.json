@@ -1,6 +1,7 @@
 {
     "Actor":{
-        "types":["personnage"],
+        "types":["personnage","pnj"],
+        "pnj":{},
         "personnage":{
             "affiliation":"",
             "occupation":"",

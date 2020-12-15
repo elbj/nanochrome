@@ -15,6 +15,16 @@
         },
         "option":{
             "limite":"Limite"
+        },
+        "occupation":"Occupation",
+        "affiliation":"Affiliation",
+        "caracteristiques":{
+            "force":"FOR",
+            "dexterite":"DEX",
+            "constitution":"CON",
+            "intelligence":"INT",
+            "sagesse":"SAG",
+            "charisme":"CHA"
         }
     }
 }
