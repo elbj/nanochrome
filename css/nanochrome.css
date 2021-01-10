@@ -1,46 +1,402 @@
-.sheet-header img{
-    width: 128px;
-    height: 128px !important;
+@import url("https://fonts.googleapis.com/css2?family=Martel:wght@400;800&family=Roboto:wght@300;400;500&display=swap");
+/* Global styles */
+.window-app {
+  font-family: "Righteous", sans-serif;
 }
 
-.sheet form select{
-    width: calc(100% - 2px);
+.text-rollable:hover, .text-rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
-.sheet form .sheet-header .fitHeader {
-    height: 100%;
+.box-rollable:hover, .box-rollable:focus {
+  color: #000;
+  -webkit-box-shadow: 0 0 10px red;
+  box-shadow: 0 0 10px red;
+  cursor: pointer;
 }
 
-.sheet .option textarea{
-    width: calc(100% - 2px);
-    min-height: 128px;
+.item-edit:hover, .item-edit:focus,
+.item-delete:hover,
+.item-delete:focus {
+  color: #000;
+  text-shadow: 0 0 10px blue;
+  cursor: pointer;
 }
 
-.sheet .caracteristiques input{
-    width:300px;
-    height:50px;
-    padding:5px;
-    box-sizing:border-box;
-    border:none;
-    outline:0;
-    background:
-        linear-gradient(grey,grey) top   /calc(100% - 30px) 1px,
-        linear-gradient(grey,grey) bottom/calc(100% - 30px) 1px,
-        linear-gradient(grey,grey) left  /1px calc(100% - 30px),
-        linear-gradient(grey,grey) right /1px calc(100% - 30px),
-        
-        linear-gradient(to bottom right,
-        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
-        top left/15px 15px,
-        linear-gradient(to bottom right,
-        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
-        bottom right/15px 15px,
-        linear-gradient(to bottom left,
-        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
-        top right/15px 15px,
-        linear-gradient(to bottom left,
-        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
-        bottom left/15px 15px;
-        
-    background-repeat:no-repeat;
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.actor-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-rows: repeat(5, auto);
+  justify-items: stretch;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  gap: 10px;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.actor-grid .risquesprouesses {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.actor-grid .armes {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.actor-grid .protections {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+
+.actor-grid .cybernetique {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.actor-grid .combat {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.actor-grid .competences {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.actor-grid .autre {
+  grid-column-start: 5;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flex-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+/* Styles limited to Nanochrome sheets */
+.nanochrome .item-form {
+  font-family: "Righteous", sans-serif;
+}
+
+.nanochrome .sheet-header {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 210px;
+  flex: 0 0 210px;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.nanochrome .sheet-header .profile-img {
+  width: 128px;
+  height: 128px;
+  margin-right: 10px;
+  background-color: black;
+}
+
+.nanochrome .sheet-header .header-fields {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.nanochrome .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+
+.nanochrome .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.nanochrome .sheet-tabs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.nanochrome .sheet-body,
+.nanochrome .sheet-body .tab,
+.nanochrome .sheet-body .tab .editor {
+  height: 100%;
+}
+
+.nanochrome .tox .tox-editor-container {
+  background: #fff;
+}
+
+.nanochrome .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.nanochrome .caracteristiques {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+.nanochrome .caracteristique {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.nanochrome .caracteristique input {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  outline: 0;
+  background: -o-linear-gradient(grey, grey) top/calc(100% - 30px) 1px, -o-linear-gradient(grey, grey) bottom/calc(100% - 30px) 1px, -o-linear-gradient(grey, grey) left/1px calc(100% - 30px), -o-linear-gradient(grey, grey) right/1px calc(100% - 30px), -o-linear-gradient(top left, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) top left/15px 15px, -o-linear-gradient(top left, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) bottom right/15px 15px, -o-linear-gradient(top right, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) top right/15px 15px, -o-linear-gradient(top right, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) bottom left/15px 15px;
+  background: linear-gradient(grey, grey) top/calc(100% - 30px) 1px, linear-gradient(grey, grey) bottom/calc(100% - 30px) 1px, linear-gradient(grey, grey) left/1px calc(100% - 30px), linear-gradient(grey, grey) right/1px calc(100% - 30px), linear-gradient(to bottom right, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) top left/15px 15px, linear-gradient(to bottom right, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) bottom right/15px 15px, linear-gradient(to bottom left, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) top right/15px 15px, linear-gradient(to bottom left, transparent calc(50% - 1px), grey, transparent calc(50% + 1px)) bottom left/15px 15px;
+  background-repeat: no-repeat;
+}
+
+.nanochrome .caracteristique input:focus {
+  background: -o-linear-gradient(red, red) top/calc(100% - 30px) 1px, -o-linear-gradient(red, red) bottom/calc(100% - 30px) 1px, -o-linear-gradient(red, red) left/1px calc(100% - 30px), -o-linear-gradient(red, red) right/1px calc(100% - 30px), -o-linear-gradient(top left, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) top left/15px 15px, -o-linear-gradient(top left, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) bottom right/15px 15px, -o-linear-gradient(top right, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) top right/15px 15px, -o-linear-gradient(top right, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) bottom left/15px 15px;
+  background: linear-gradient(red, red) top/calc(100% - 30px) 1px, linear-gradient(red, red) bottom/calc(100% - 30px) 1px, linear-gradient(red, red) left/1px calc(100% - 30px), linear-gradient(red, red) right/1px calc(100% - 30px), linear-gradient(to bottom right, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) top left/15px 15px, linear-gradient(to bottom right, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) bottom right/15px 15px, linear-gradient(to bottom left, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) top right/15px 15px, linear-gradient(to bottom left, transparent calc(50% - 1px), red, transparent calc(50% + 1px)) bottom left/15px 15px;
+  background-repeat: no-repeat;
+}
+
+.nanochrome .item-img {
+  width: 32px;
+  height: 32px;
+  background-color: black;
+}
+
+.nanochrome .pointsdevie input[type="number"] {
+  width: 50px;
+  text-align: center;
+}
+
+.nanochrome .pointsdevie input[type="checkbox"] {
+  width: 20px;
+}
+
+.nanochrome .sheet-block {
+  border-radius: 1em;
+  border: 2px solid black;
+  padding: 1em;
+  margin: 5px;
+}
+
+.nanochrome .resource-label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nanochrome .tabs {
+  height: 40px;
+  border-top: 1px solid #AAA;
+  border-bottom: 1px solid #AAA;
+}
+
+.nanochrome .tabs .item {
+  line-height: 40px;
+  font-weight: bold;
+}
+
+.nanochrome .tabs .item.active {
+  text-decoration: underline;
+  text-shadow: none;
+}
+
+.nanochrome .items-list {
+  list-style: none;
+  margin: 7px 0;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.nanochrome .items-list .item-header {
+  font-weight: bold;
+}
+
+.nanochrome .items-list .item {
+  height: 30px;
+  line-height: 24px;
+  padding: 3px 0;
+  border-bottom: 1px solid #BBB;
+}
+
+.nanochrome .items-list .item .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  margin-right: 5px;
+}
+
+.nanochrome .items-list .item img {
+  display: block;
+}
+
+.nanochrome .items-list .item-name {
+  margin: 0;
+}
+
+.nanochrome .items-list .item-controls {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 86px;
+  flex: 0 0 86px;
+  text-align: right;
 }
