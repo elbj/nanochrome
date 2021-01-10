@@ -1,0 +1,7 @@
+<div class="sheet-block pointsdevie flex-col flex-center">
+    <h3>{{localize 'nanochrome.pointsdevie'}}</h3>
+    <label><input name="data.pointsdevie.actuel" type="number" value="{{data.pointsdevie.actuel}}" data-dtype="Number" /> / {{data.pointsdevie.max}}</label>
+    <div class="flex-row flex-center">
+        {{#blessures data.blessures.max data.blessures.actuel}}{{/blessures}}
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="sheet-block cybernetique">
+    <h3>{{localize 'nanochrome.cybernetique.nom'}}</h3>
+    {{#each data.cybernetique as |cyber nom|}}
+    <div>        
+        <label class="css-label"><input type="checkbox" name="data.cybernetique.{{nom}}.estInstalle" class="css-checkbox" {{checked cyber.estInstalle}} data-dtype="Boolean" /> {{nom}}</label>
+    </div>
+    {{/each}}
+</div>

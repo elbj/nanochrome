@@ -1,34 +1,27 @@
-<form class="{{cssClass}}" autocomplete="off">
+<form class="{{cssClass}} nanochrome personnage" autocomplete="off">
     <header class="sheet-header">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="128" width="128"/>
-        <div>
-            <h1><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-            <label for="data.affiliation">{{localize 'nanochrome.affiliation'}}
-                <input name="data.affiliation" type="text" value="{{data.affiliation}}"/>
-            </label>
-            <label for="data.occupation">{{localize 'nanochrome.occupation'}}
-                <input name="data.occupation" type="text" value="{{data.occupation}}"/>
-            </label>
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="128" width="128" />
+        <div class="col">
+            {{> "systems/nanochrome/templates/sheets/partials/profil.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/caracteristiques.hbs"}}
         </div>
     </header>
-    <div class="caracteristiques flex-row">
-        <label for="data.caracteristiques.force">{{localize 'nanochrome.caracteristiques.force'}}
-            <input name="data.caracteristiques.force" type="number" value="{{data.caracteristiques.force}}" data-dtype="Number"/>
-        </label>
-        <label for="data.caracteristiques.dexterite">{{localize 'nanochrome.caracteristiques.dexterite'}}
-            <input name="data.caracteristiques.dexterite" type="number" value="{{data.caracteristiques.dexterite}}" data-dtype="Number"/>
-        </label>
-        <label for="data.caracteristiques.constitution">{{localize 'nanochrome.caracteristiques.constitution'}}
-            <input name="data.caracteristiques.constitution" type="number" value="{{data.caracteristiques.constitution}}" data-dtype="Number"/>
-        </label>
-        <label for="data.caracteristiques.intelligence">{{localize 'nanochrome.caracteristiques.intelligence'}}
-            <input name="data.caracteristiques.intelligence" type="number" value="{{data.caracteristiques.intelligence}}" data-dtype="Number"/>
-        </label>
-        <label for="data.caracteristiques.sagesse">{{localize 'nanochrome.caracteristiques.sagesse'}}
-            <input name="data.caracteristiques.sagesse" type="number" value="{{data.caracteristiques.sagesse}}" data-dtype="Number"/>
-        </label>
-        <label for="data.caracteristiques.charisme">{{localize 'nanochrome.caracteristiques.charisme'}}
-            <input name="data.caracteristiques.charisme" type="number" value="{{data.caracteristiques.charisme}}" data-dtype="Number"/>
-        </label>
+
+    <div class="sheet-body actor-grid">
+        {{> "systems/nanochrome/templates/sheets/partials/risques-et-prouesses.hbs"}}
+        {{> "systems/nanochrome/templates/sheets/partials/liste-armes.hbs"}}
+        {{> "systems/nanochrome/templates/sheets/partials/liste-protections.hbs"}}
+        {{> "systems/nanochrome/templates/sheets/partials/liste-cybernetique.hbs"}}
+        <div class="combat">
+            {{> "systems/nanochrome/templates/sheets/partials/initiative.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/defense.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/points-de-vie.hbs"}}
+        </div>
+        {{> "systems/nanochrome/templates/sheets/partials/competences.hbs"}}
+        <div class="autre">
+            {{> "systems/nanochrome/templates/sheets/partials/connexion.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/nexus.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/chance.hbs"}}
+        </div>
     </div>
 </form>

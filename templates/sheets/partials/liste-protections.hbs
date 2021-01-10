@@ -1,0 +1,35 @@
+<div class="sheet-block protections">
+    <h3>{{localize 'nanochrome.protections'}}</h3>
+    {{#ifCond data.protections.length "===" 0}}
+    Aucune protection.
+    {{else}}
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{{localize 'nanochrome.protection.protection'}}</th>
+            <th>{{localize 'nanochrome.item.discretion'}}</th>
+        </tr>
+        {{#each data.protections as |protection id| }}
+        <tr data-item-id="{{item._id}}">
+            <td rowspan="2"><img class="item-img" src="{{protection.img}}" title="{{protection.name}}" height="32" width="32" /></td>
+            <td>{{protection.name}}</td>
+            <td>{{protection.data.protection}}</td>
+            <td>{{protection.data.discretion}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                {{#ifCond protection.data.options.length "===" 0}}
+                Aucune option.
+                {{else}}
+                {{#each protection.data.options as |option|}}
+                <span>{{option.name}}, </span>
+                {{/each}}
+                {{/ifCond}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/ifCond}}
+</div>

@@ -1,0 +1,41 @@
+<div class="sheet-block armes">
+    <h3>{{localize 'nanochrome.armes'}}</h3>
+    {{#ifCond data.armes.length "===" 0}}
+    Aucune arme.
+    {{else}}
+    <table>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>{{localize 'nanochrome.arme.attaque'}}</th>
+            <th>{{localize 'nanochrome.arme.degats'}}</th>
+            <th>{{localize 'nanochrome.item.discretion'}}</th>
+        </tr>
+        {{#each data.armes as |arme id| }}
+        <tr class="item" data-item-id="{{arme._id}}">
+            <td rowspan="2"><img class="item-img box-rollable roll-attaque" data-arme="{{arme.name}}" data-attaque="{{arme.data.attaque}}" data-degats="{{arme.data.degatsTotaux}}" src="{{arme.img}}" title="Attaque avec {{arme.name}}" height="32" width="32" /></td>
+            <td><span class="item-edit editable">{{arme.name}}</span></td>
+            <td>+{{arme.data.attaque}}</td>
+            <td>{{arme.data.degatsTotaux}}</td>
+            <td>{{arme.data.discretion}}</td>
+        </tr>
+        <tr class="item" data-item-id="{{arme._id}}">
+            <td></td>
+            <td colspan="2">
+                {{#ifCond arme.data.options.length "===" 0}}
+                Aucune option.
+                {{else}}
+                {{#each arme.data.options as |option|}}
+                <span>{{option.name}}, </span>
+                {{/each}}
+                {{/ifCond}}
+            </td>
+            <td class="item-controls">
+                <a class="item-control item-edit editable" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/ifCond}}
+</div>
