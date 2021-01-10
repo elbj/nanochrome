@@ -2,13 +2,15 @@
     "name": "nanochrome",
     "title": "Nanochrome",
     "description": "The Nanochrome system for FoundryVTT!",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "minimumCoreVersion": "0.7.8",
-    "compatibleCoreVersion": "0.7.8",
+    "compatibleCoreVersion": "0.7.9",
     "templateVersion": 2,
     "author": "Christophe (Pilule Rouge JdR)",
     "esmodules": ["module/nanochrome.js"],
-    "styles": ["css/nanochrome.css"],
+    "styles": [
+      "css/nanochrome.css"
+    ],
     "scripts": [],
     "packs": [],
     "languages": [

@@ -16,16 +16,16 @@
             "experience":0,
             "yens":0,
             "pointsdevie":{
-                "actuel":0,
-                "max":0
+                "actuel":0
+            },
+            "blessures":{
+                "actuel":0
             },
             "chance":{
-                "actuel":0,
-                "max":0
+                "actuel":0
             },
             "connexion":{
-                "actuel":0,
-                "max":0
+                "actuel":0
             },
             "nexus":{
                 "parefeu":0,
@@ -60,25 +60,26 @@
         }
     },
     "Item":{
-        "types":["option", "arme", "protection"],
+        "types":["option", "arme", "protection", "munition"],
         "templates":{
             "base":{
-                "description":""
+                "discretion":"Visible",
+                "options": []
             }
         },
         "option":{
-            "templates":["base"],
+            "description":"",
             "limite":1
         },
-        "arme":{
+        "arme":{            
+            "templates":["base"],
             "type": "armeafeu",
             "degats": 1,
-            "discretion": "Visible",
-            "options": []
+            "munitions":0
         },
         "protection":{
-            "protection":1,
-            "discretion":"Visible"
+            "templates":["base"],
+            "protection":1
         }
     }
 }

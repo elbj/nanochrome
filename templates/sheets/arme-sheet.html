@@ -1,6 +1,6 @@
 <form class="{{cssClass}}" autocomplete="off">
     <header class="sheet-header fitHeader">
-        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="128" width="128"/>
+        <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" height="128" width="128"/>
         <div>
             <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name"/></h1>
             <table>
@@ -26,6 +26,12 @@
                     <th>{{localize "nanochrome.arme.discretion"}}</th>
                     <td>
                         <input name="data.discretion" type="text" value="{{data.discretion}}" placeholder="{{localize 'nanochrome.arme.discretion'}}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Munition</th>
+                    <td>
+                        <input name="data.munition" type="number" value="{{data.munition}}" placeholder="munitions" data-dtype="Number"/>
                     </td>
                 </tr>
             </table>

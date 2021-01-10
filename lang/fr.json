@@ -1,18 +1,47 @@
 {
     "nanochrome":{
+        "base":{
+            "description":"Description"
+        },
+        "armes":"Armes",
+        "item":{
+            "description":"Description",
+            "discretion":"Discrétion",
+            "options":"Options"
+        },
         "arme":{
+            "attaque":"Attaque",
             "type":"Type",
             "degats":"Dégats",
-            "discretion":"Discrétion",
-            "options":"Options",
             "types":{
                 "armedecorpsacorps":"Arme de corps à corps",
                 "armeafeu":"Arme à feu"
             }
         },
-        "base":{
-            "description":"Description"
+        "protections":"Protections",
+        "protection":{
+            "protection":"Protection"
         },
+        "nom":"Nom",
+        "cybernetique":{
+            "nom":"Cybernétique",
+            "neuronique":"Neuronique",
+            "nanogenetique":"Nanogénétique",
+            "panoptique":"Panoptique",
+            "prosthetique":"Prosthétique",
+            "renforcements":"Renforcements"
+        },
+        "pointsdevie":"PV",
+        "connexion":"Connexion",
+        "nexus":"Nexus",
+        "initiative":"Init",
+        "defense":"DEF",
+        "physique":"Physique",
+        "chance":"Chance",
+        "experience":"XP",
+        "yens":"Yens",
+        "risquesprouesses":"Risques & Prouesses",
+        "competences":"Compétences et capacités",
         "option":{
             "limite":"Limite"
         },
