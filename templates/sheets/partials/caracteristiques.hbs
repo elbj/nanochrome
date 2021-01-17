@@ -1,8 +1,8 @@
 <div class="caracteristiques">
-    {{#each data.caracteristiques as |valeur nom|}}
+    {{#each data.caracteristiques as |caracteristique key|}}
     <div class="caracteristique">
-        <label class="text-rollable roll-caracteristique" data-nom="{{nom}}" data-valeur="{{valeur}}" for="data.caracteristiques.{{nom}}">{{nom}}</label>
-        <input name="data.caracteristiques.{{nom}}" type="number" value="{{valeur}}"
+        <label class="text-rollable roll-caracteristique resource-label" data-nom="{{caracteristique.nom}}" data-valeur="{{caracteristique.valeur}}" for="data.caracteristiques.{{key}}">{{caracteristique.nom}}</label>
+        <input name="data.caracteristiques.{{key}}.valeur" type="number" value="{{caracteristique.valeur}}"
             data-dtype="Number" />
     </div>
     {{/each}}

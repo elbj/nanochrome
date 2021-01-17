@@ -1,7 +1,8 @@
 {
     "nanochrome":{
         "base":{
-            "description":"Description"
+            "description":"Description",
+            "type":"Type"
         },
         "armes":"Armes",
         "item":{
@@ -16,7 +17,8 @@
             "types":{
                 "armedecorpsacorps":"Arme de corps à corps",
                 "armeafeu":"Arme à feu"
-            }
+            },
+            "discretion":"Discrétion"
         },
         "protections":"Protections",
         "protection":{
@@ -31,17 +33,19 @@
             "prosthetique":"Prosthétique",
             "renforcements":"Renforcements"
         },
-        "pointsdevie":"PV",
+        "capacitespeciale":"Capacité Spéciale",
+        "pointsdevie":"Point de vie",
         "connexion":"Connexion",
         "nexus":"Nexus",
-        "initiative":"Init",
-        "defense":"DEF",
+        "initiative":"Initiative",
+        "defense":"Défense",
         "physique":"Physique",
         "chance":"Chance",
-        "experience":"XP",
+        "experience":"Expérience",
         "yens":"Yens",
         "risquesprouesses":"Risques & Prouesses",
-        "competences":"Compétences et capacités",
+        "competences":"Compétences",
+        "capacites":"Capacités",
         "option":{
             "limite":"Limite"
         },

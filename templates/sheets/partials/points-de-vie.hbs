@@ -1,7 +1,16 @@
 <div class="sheet-block pointsdevie flex-col flex-center">
-    <h3>{{localize 'nanochrome.pointsdevie'}}</h3>
-    <label><input name="data.pointsdevie.actuel" type="number" value="{{data.pointsdevie.actuel}}" data-dtype="Number" /> / {{data.pointsdevie.max}}</label>
-    <div class="flex-row flex-center">
+    <h3>{{localize 'nanochrome.pointsdevie'}} : <label class="smallInput"><input name="data.pointsdevie.actuel" type="number" value="{{data.pointsdevie.actuel}}" data-dtype="Number" /> / {{data.pointsdevie.max}}</label>
+    </h3>
+    <div class="flex-row flex-center flex-center-vertical">
         {{#blessures data.blessures.max data.blessures.actuel}}{{/blessures}}
+    </div>
+    <hr>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Capacité</label>
+        <input name="data.pointsdevie.bonus.capacite" type="number" value="{{data.pointsdevie.bonus.capacite}}" data-dtype="Number" />
+    </div>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Cyber</label>
+        <input name="data.pointsdevie.bonus.cyber" type="number" value="{{data.pointsdevie.bonus.cyber}}" data-dtype="Number" />
     </div>
 </div>

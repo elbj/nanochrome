@@ -1,0 +1,19 @@
+<div class="sheet-block capacites">
+    <h3>{{localize 'nanochrome.capacites'}}</h3>
+    {{#ifCond data.capacites.length "===" 0}}
+    Aucune capacité.
+    {{else}}
+    <table>
+        {{#each data.capacites as |capacite id| }}
+        <tr class="item" data-item-id="{{capacite._id}}">
+            <td><img class="item-img" src="{{capacite.img}}" title="{{capacite.name}}" height="32" width="32" /></td>
+            <td><span class="item-edit editable"></span>{{capacite.name}} ({{capacite.data.limite}})</td>
+            <td>{{capacite.data.decription}}</td>
+            <td class="item-controls">
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+    {{/ifCond}}
+</div>

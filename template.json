@@ -6,80 +6,106 @@
             "affiliation":"",
             "occupation":"",
             "caracteristiques":{
-                "force":0,
-                "dexterite":0,
-                "constitution":0,
-                "intelligence":0,
-                "sagesse":0,
-                "charisme":0
+                "force": {
+                    "valeur" : 0
+                },
+                "dexterite":{
+                    "valeur" : 0
+                },
+                "constitution":{
+                    "valeur" : 0
+                },
+                "intelligence":{
+                    "valeur" : 0
+                },
+                "sagesse":{
+                    "valeur" : 0
+                },
+                "charisme":{
+                    "valeur" : 0
+                }
             },
             "experience":0,
             "yens":0,
             "pointsdevie":{
-                "actuel":0
+                "actuel":0,
+                "bonus":{
+                    "cyber":0,
+                    "capacite":0
+                }
             },
             "blessures":{
                 "actuel":0
             },
+            "defense":{
+                "bonus":{
+                    "cyber":0,
+                    "capacite":0
+                }
+            },
             "chance":{
-                "actuel":0
+                "actuel":0,
+                "bonus":{
+                    "capacite":0
+                }
             },
             "connexion":{
-                "actuel":0
+                "actuel":0,
+                "bonus":{
+                    "nexus":0,
+                    "cyber":0,
+                    "capacite":0
+                }
             },
             "nexus":{
                 "parefeu":0,
                 "options":[]
             },
-            "competences":[],
+            "competences":"",
+            "capacites":[],
             "armes":[],
             "protections":[],
             "equipement":[],
-            "cybernetique":{
-                "neuronique":{
-                    "estInstalle":false,
-                    "options":[]
-                },
-                "nanogenetique":{
-                    "estInstalle":false,
-                    "options":[]
-                },
-                "panoptique":{
-                    "estInstalle":false,
-                    "options":[]
-                },
-                "prosthetique":{
-                    "estInstalle":false,
-                    "options":[]
-                },
-                "renforcements":{
-                    "estInstalle":false,
-                    "options":[]
-                }
-            }
+            "cybernetique":[]
         }
     },
     "Item":{
-        "types":["option", "arme", "protection", "munition"],
+        "types":["option", "arme", "protection", "munition", "capacite", "cybernetique"],
         "templates":{
+            "options":{
+                "options": []
+            },
             "base":{
                 "discretion":"Visible",
                 "options": []
+            },
+            "description":{
+                "description":""
             }
         },
         "option":{
-            "description":"",
-            "limite":1
+            "templates":["description"],
+            "limite":1,
+            "type":"",
+            "affectation":""
         },
         "arme":{            
-            "templates":["base"],
+            "templates":["base","options"],
             "type": "armeafeu",
             "degats": 1,
             "munitions":0
         },
         "protection":{
-            "templates":["base"],
+            "templates":["base","options"],
             "protection":1
+        },
+        "capacite":{
+            "templates":["description"],
+            "limite":1
+        },
+        "cybernetique":{
+            "templates":["description","options"],
+            "capacitespeciale":""
         }
     }
 }

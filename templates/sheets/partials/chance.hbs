@@ -1,4 +1,8 @@
-<div class="sheet-block chance">
-    <h3>{{localize 'nanochrome.chance'}}</h3>
-    <div></div>
+<div class="sheet-block chance flex-center">
+    <h3>{{localize 'nanochrome.chance'}} : <label class="smallInput resource-label"><input name="data.chance.actuel" type="number" value="{{data.chance.actuel}}" data-dtype="Number" /> / {{data.chance.max}}</label></h3>
+    <hr>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Capacité</label>
+        <input name="data.chance.bonus.capacite" type="number" value="{{data.chance.bonus.capacite}}" data-dtype="Number" />
+    </div>
 </div>

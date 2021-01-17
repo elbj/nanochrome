@@ -13,28 +13,46 @@ export default class NanoActorSheet extends ActorSheet {
 
         const character = data.data;
 
+        for(var nom in character.caracteristiques){
+            var caracteristique = character.caracteristiques[nom];
+            caracteristique.nom = data.config.caracteristiques[nom];
+        }
+
+        var force = character.caracteristiques["force"].valeur;
+        var dexterite = character.caracteristiques["dexterite"].valeur;
+        var constitution = character.caracteristiques["constitution"].valeur;
+        var sagesse = character.caracteristiques["sagesse"].valeur;
+        var intelligence = character.caracteristiques["intelligence"].valeur;
+        var charisme = character.caracteristiques["charisme"].valeur;
+
         character.armes = data.items.filter((item => { return item.type === "arme" }));
         character.armes.forEach((arme) => {
             if(arme.data.type === "armedecorpsacorps"){
-                arme.data.attaque = character.caracteristiques.force;
-                arme.data.degatsTotaux = arme.data.degats + character.caracteristiques.force;
+                arme.data.attaque = force;
+                arme.data.degatsTotaux = arme.data.degats + force;
             }
             else{
-                arme.data.attaque = character.caracteristiques.dexterite;
-                arme.data.degatsTotaux = arme.data.degats + character.caracteristiques.dexterite;
+                arme.data.attaque = dexterite;
+                arme.data.degatsTotaux = arme.data.degats + dexterite;
             }
         })
 
         character.protections = data.items.filter((item => { return item.type === "protection" }));
+        character.capacites = data.items.filter((item => { return item.type === "capacite" }));
+        character.equipement = data.items.filter((item => { return item.type === "equipement" }));
+        character.cybernetique = data.items.filter((item => { return item.type === "cybernetique" }));
 
         var protection = 0;
         character.protections.forEach((prot) => {
             protection += prot.data.protection;
         })
-        character.protection = protection;
-        character.defense = 7 + character.caracteristiques.sagesse + protection;
+        character.defense.protection = protection;
+        character.defense.valeur = 7 + sagesse + protection + character.defense.bonus.cyber + character.defense.bonus.capacite;
 
-        var pointsdevie = 5 + 5 * character.caracteristiques.constitution;
+        character.connexion.max = intelligence + character.connexion.bonus.nexus + character.connexion.bonus.cyber + character.connexion.bonus.capacite;
+        character.chance.max = charisme + character.chance.bonus.capacite;
+
+        var pointsdevie = 5 + 5 * constitution + character.pointsdevie.bonus.cyber + character.pointsdevie.bonus.capacite;
         character.pointsdevie.max = pointsdevie - 5 * character.blessures.actuel;
         character.blessures.max = pointsdevie / 5;
         return data;

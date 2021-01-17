@@ -5,6 +5,26 @@ nanochrome.armeTypes = {
     armeafeu: "Arme à feu"
 }
 
+nanochrome.optionTypes = {
+    armedecorpsacorps: "Arme de corps à corps",
+    armeafeu: "Arme à feu",
+    protection: "Protection",
+    neuronique:"Neuronique",
+    nanogenetique:"Nanogénétique",
+    panoptique:"Panoptique",
+    prosthetique:"Prosthétique",
+    renforcements:"Renforcement"
+}
+
+nanochrome.caracteristiques = {
+    force :"FOR",
+    dexterite :"DEX",
+    constitution :"CON",
+    intelligence :"INT",
+    sagesse :"SAG",
+    charisme :"CHA"
+}
+
 nanochrome.risquesprouesses = [
     {
         "id":1,

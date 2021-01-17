@@ -116,63 +116,21 @@
 .actor-grid {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: repeat(5, auto);
+  grid-template-rows: auto;
   justify-items: stretch;
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: start;
-  gap: 10px;
   margin: 5px 0;
   padding: 0;
 }
 
-.actor-grid .risquesprouesses {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-.actor-grid .armes {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 2;
-  grid-row-end: 3;
-}
-
-.actor-grid .protections {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-
-.actor-grid .cybernetique {
-  grid-column-start: 1;
-  grid-column-end: 5;
-  grid-row-start: 4;
-  grid-row-end: 5;
+.actor-grid .listes {
+  grid-column: 1 / 5;
 }
 
 .actor-grid .combat {
-  grid-column-start: 4;
-  grid-column-end: 5;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
-
-.actor-grid .competences {
-  grid-column-start: 5;
-  grid-column-end: 7;
-  grid-row-start: 3;
-  grid-row-end: 6;
-}
-
-.actor-grid .autre {
-  grid-column-start: 5;
-  grid-column-end: 7;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  grid-column: 5 / 7;
 }
 
 .flex-center {
@@ -199,6 +157,12 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.flex-center-vertical {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 /* Styles limited to Nanochrome sheets */
@@ -252,16 +216,24 @@
   margin: 0;
 }
 
+.nanochrome .sheet-header .fitHeader {
+  height: 100%;
+}
+
+.nanochrome .sheet-header textarea {
+  width: calc(100% - 2px);
+  min-height: 128px;
+}
+
+.nanochrome h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .nanochrome .sheet-tabs {
   -webkit-box-flex: 0;
   -ms-flex: 0;
   flex: 0;
-}
-
-.nanochrome .sheet-body,
-.nanochrome .sheet-body .tab,
-.nanochrome .sheet-body .tab .editor {
-  height: 100%;
 }
 
 .nanochrome .tox .tox-editor-container {
@@ -318,19 +290,75 @@
   background-repeat: no-repeat;
 }
 
+.nanochrome table tr td {
+  padding: 2px;
+}
+
 .nanochrome .item-img {
-  width: 32px;
-  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  max-width: 32px;
+  max-height: 32px;
   background-color: black;
 }
 
-.nanochrome .pointsdevie input[type="number"] {
+.nanochrome .smallInput input[type="number"] {
   width: 50px;
   text-align: center;
 }
 
-.nanochrome .pointsdevie input[type="checkbox"] {
+.nanochrome .smallInput input[type="checkbox"] {
   width: 20px;
+}
+
+.nanochrome .pointsdevie input[type="checkbox"] {
+  margin: 1px 1px;
+}
+
+.nanochrome .flex-orderSmallInput {
+  width: 100%;
+  margin-bottom: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.nanochrome .textareaZone {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 250px;
+  justify-items: stretch;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start;
+  margin: 5px 0;
+  padding: 0;
+}
+
+.nanochrome .textareaZone label {
+  grid-row: 1;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.nanochrome .textareaZone textarea {
+  grid-row: 2;
+  width: calc(100% - 2px) !important;
+  height: calc(100% - 2px) !important;
+}
+
+.nanochrome .competences textarea {
+  height: 150px;
 }
 
 .nanochrome .sheet-block {

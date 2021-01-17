@@ -1,8 +1,18 @@
 <div class="sheet-block cybernetique">
     <h3>{{localize 'nanochrome.cybernetique.nom'}}</h3>
-    {{#each data.cybernetique as |cyber nom|}}
-    <div>        
-        <label class="css-label"><input type="checkbox" name="data.cybernetique.{{nom}}.estInstalle" class="css-checkbox" {{checked cyber.estInstalle}} data-dtype="Boolean" /> {{nom}}</label>
-    </div>
-    {{/each}}
+    <table>
+        {{#each data.cybernetique as |cyber nom|}}
+        <tr class="item" data-item-id="{{cyber._id}}">
+            <td rowspan="2"><img class="item-img" src="{{cyber.img}}"/></td>
+            <td><label class="item-edit editable">{{cyber.name}}</label><br/><small>({{data.capacitespeciale}})</small></td>
+        </tr>
+        <tr class="item" data-item-id="{{cyber._id}}">
+            <td>Options</td>
+            <td class="item-controls">
+                <a class="item-control item-edit editable" title="Edit Item"><i class="fas fa-edit"></i></a>
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
 </div>

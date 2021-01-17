@@ -8,20 +8,22 @@
     </header>
 
     <div class="sheet-body actor-grid">
-        {{> "systems/nanochrome/templates/sheets/partials/risques-et-prouesses.hbs"}}
-        {{> "systems/nanochrome/templates/sheets/partials/liste-armes.hbs"}}
-        {{> "systems/nanochrome/templates/sheets/partials/liste-protections.hbs"}}
-        {{> "systems/nanochrome/templates/sheets/partials/liste-cybernetique.hbs"}}
+        <div class="listes">
+            {{> "systems/nanochrome/templates/sheets/partials/risques-et-prouesses.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-armes.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-protections.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-cybernetique.hbs"}}
+        </div>
+
         <div class="combat">
             {{> "systems/nanochrome/templates/sheets/partials/initiative.hbs"}}
             {{> "systems/nanochrome/templates/sheets/partials/defense.hbs"}}
             {{> "systems/nanochrome/templates/sheets/partials/points-de-vie.hbs"}}
-        </div>
-        {{> "systems/nanochrome/templates/sheets/partials/competences.hbs"}}
-        <div class="autre">
             {{> "systems/nanochrome/templates/sheets/partials/connexion.hbs"}}
             {{> "systems/nanochrome/templates/sheets/partials/nexus.hbs"}}
             {{> "systems/nanochrome/templates/sheets/partials/chance.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/competences.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/capacites.hbs"}}
         </div>
     </div>
 </form>

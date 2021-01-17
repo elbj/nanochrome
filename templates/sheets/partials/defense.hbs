@@ -1,4 +1,16 @@
-<div class="sheet-block defense">
-    <h3>{{localize 'nanochrome.defense'}}</h3>
-    <div>{{data.defense}}</div>
+<div class="sheet-block defense flex-center">
+    <h3>{{localize 'nanochrome.defense'}} : {{data.defense.valeur}}</h3>
+    <hr>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Protection</label>
+        <input name="data.defense.protection" type="number" value="{{data.defense.protection}}" readonly data-dtype="Number" />
+    </div>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Capacité</label>
+        <input name="data.defense.bonus.capacite" type="number" value="{{data.defense.bonus.capacite}}" data-dtype="Number" />
+    </div>
+    <div class="flex-orderSmallInput smallInput">
+        <label>Bonus Cyber</label>
+        <input name="data.defense.bonus.cyber" type="number" value="{{data.defense.bonus.cyber}}" data-dtype="Number" />
+    </div>
 </div>
