@@ -1,0 +1,29 @@
+<form class="{{cssClass}} nanochrome personnage" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="128" width="128" />
+        <div class="col">
+            {{> "systems/nanochrome/templates/sheets/partials/profil.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/caracteristiques.hbs"}}
+        </div>
+    </header>
+
+    <div class="sheet-body actor-grid">
+        <div class="listes">
+            {{> "systems/nanochrome/templates/sheets/partials/risques-et-prouesses.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-armes.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-protections.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-cybernetique.hbs"}}
+        </div>
+
+        <div class="combat">
+            {{> "systems/nanochrome/templates/sheets/partials/initiative.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/defense.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/points-de-vie.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/connexion.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/nexus.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/chance.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/competences.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/capacites.hbs"}}
+        </div>
+    </div>
+</form>

@@ -1,0 +1,15 @@
+<div class="sheet-block risquesprouesses">
+    <h3>{{localize 'nanochrome.risquesprouesses'}}</h3>
+    <table>
+        {{#each config.risquesprouesses as |element| }}
+        <tr>
+            <td>
+                <bold class="text-rollable roll-prouesse" data-prouesse-id="{{element.id}}">{{element.prouesse.nom}}</bold> <small>{{element.prouesse.description}}</small>
+            </td>
+            <td>
+                <bold>{{element.risque.nom}}</bold> <small>{{element.risque.description}}</small>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

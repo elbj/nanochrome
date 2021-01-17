@@ -1,0 +1,103 @@
+.sheet-header img{
+    width: 128px;
+    height: 128px !important;
+}
+
+.sheet img{
+    background-color: black;
+}
+
+.sheet form select{
+    width: calc(100% - 2px);
+}
+
+.sheet form .sheet-header .fitHeader {
+    height: 100%;
+}
+
+.sheet .option textarea{
+    width: calc(100% - 2px);
+    min-height: 128px;
+}
+
+.sheet .caracteristiques{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.sheet .personnage .col{
+    display:flex;
+    flex-direction:column;
+}
+
+.sheet .caracteristiques .col{
+    align-items:center;
+}
+
+.sheet .personnage .row{
+    display:flex;
+    flex-direction:row;    
+}
+
+.sheet .caracteristiques .row{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+}
+
+.sheet .personnage input{
+    width: calc(100% - 2px);
+}
+
+.sheet .caracteristiques input{
+    text-align: center;
+    width:50px;
+    height:50px;
+    padding:5px;
+    box-sizing:border-box;
+    border:none;
+    outline:0;
+    background:
+        linear-gradient(grey,grey) top   /calc(100% - 30px) 1px,
+        linear-gradient(grey,grey) bottom/calc(100% - 30px) 1px,
+        linear-gradient(grey,grey) left  /1px calc(100% - 30px),
+        linear-gradient(grey,grey) right /1px calc(100% - 30px),
+        
+        linear-gradient(to bottom right,
+        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
+        top left/15px 15px,
+        linear-gradient(to bottom right,
+        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
+        bottom right/15px 15px,
+        linear-gradient(to bottom left,
+        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
+        top right/15px 15px,
+        linear-gradient(to bottom left,
+        transparent calc(50% - 1px),grey,transparent calc(50% + 1px))
+        bottom left/15px 15px;
+        
+    background-repeat:no-repeat;
+}
+
+.sheet .caracteristiques input:focus{
+    background:
+        linear-gradient(red,red) top   /calc(100% - 30px) 1px,
+        linear-gradient(red,red) bottom/calc(100% - 30px) 1px,
+        linear-gradient(red,red) left  /1px calc(100% - 30px),
+        linear-gradient(red,red) right /1px calc(100% - 30px),
+        
+        linear-gradient(to bottom right,
+        transparent calc(50% - 1px),red,transparent calc(50% + 1px))
+        top left/15px 15px,
+        linear-gradient(to bottom right,
+        transparent calc(50% - 1px),red,transparent calc(50% + 1px))
+        bottom right/15px 15px,
+        linear-gradient(to bottom left,
+        transparent calc(50% - 1px),red,transparent calc(50% + 1px))
+        top right/15px 15px,
+        linear-gradient(to bottom left,
+        transparent calc(50% - 1px),red,transparent calc(50% + 1px))
+        bottom left/15px 15px;
+        
+    background-repeat:no-repeat;
+}

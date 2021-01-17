@@ -13,4 +13,8 @@ export default class NanoItemSheet extends ItemSheet{
 
         return data;
     }
+
+    _onDrop(data){
+        console.log(data);
+    }
 }

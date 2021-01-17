@@ -1,0 +1,32 @@
+.window-app {
+  font-family: $font-primary;
+}
+
+.text-rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.box-rollable {
+  &:hover,
+  &:focus {
+    color: #000;
+    box-shadow: 0 0 10px red;
+    cursor: pointer;
+  }
+}
+
+.item-edit,
+.item-delete
+ {
+  &:hover,
+  &:focus {
+    color: #000;
+    text-shadow: 0 0 10px blue;
+    cursor: pointer;
+  }
+}

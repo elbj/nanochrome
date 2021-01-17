@@ -1,0 +1,16 @@
+<form class="{{cssClass}} nanochrome" autocomplete="off">
+    <header class="sheet-header fitHeader">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="128" width="128" />
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="Name" /></h1>
+    </header>
+    <div class="flex-col">
+        <div class="textareaZone">
+            <label for="data.description">{{localize 'nanochrome.base.description'}}</label>
+            <textarea name="data.description">{{data.description}}</textarea>
+        </div>
+        <div class="textareaZone">
+            <label for="data.capacitespeciale">{{localize 'nanochrome.capacitespeciale'}}</label>
+            <textarea name="data.capacitespeciale">{{data.capacitespeciale}}</textarea>
+        </div>
+    </div>
+</form>

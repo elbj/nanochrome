@@ -1,25 +1,111 @@
 {
-    "Actor":{},
+    "Actor":{
+        "types":["personnage","pnj"],
+        "pnj":{},
+        "personnage":{
+            "affiliation":"",
+            "occupation":"",
+            "caracteristiques":{
+                "force": {
+                    "valeur" : 0
+                },
+                "dexterite":{
+                    "valeur" : 0
+                },
+                "constitution":{
+                    "valeur" : 0
+                },
+                "intelligence":{
+                    "valeur" : 0
+                },
+                "sagesse":{
+                    "valeur" : 0
+                },
+                "charisme":{
+                    "valeur" : 0
+                }
+            },
+            "experience":0,
+            "yens":0,
+            "pointsdevie":{
+                "actuel":0,
+                "bonus":{
+                    "cyber":0,
+                    "capacite":0
+                }
+            },
+            "blessures":{
+                "actuel":0
+            },
+            "defense":{
+                "bonus":{
+                    "cyber":0,
+                    "capacite":0
+                }
+            },
+            "chance":{
+                "actuel":0,
+                "bonus":{
+                    "capacite":0
+                }
+            },
+            "connexion":{
+                "actuel":0,
+                "bonus":{
+                    "nexus":0,
+                    "cyber":0,
+                    "capacite":0
+                }
+            },
+            "nexus":{
+                "parefeu":0,
+                "options":[]
+            },
+            "competences":"",
+            "capacites":[],
+            "armes":[],
+            "protections":[],
+            "equipement":[],
+            "cybernetique":[]
+        }
+    },
     "Item":{
-        "types":["option", "arme", "protection"],
+        "types":["option", "arme", "protection", "munition", "capacite", "cybernetique"],
         "templates":{
+            "options":{
+                "options": []
+            },
             "base":{
+                "discretion":"Visible",
+                "options": []
+            },
+            "description":{
                 "description":""
             }
         },
         "option":{
-            "templates":["base"],
-            "limite":1
+            "templates":["description"],
+            "limite":1,
+            "type":"",
+            "affectation":""
         },
-        "arme":{
+        "arme":{            
+            "templates":["base","options"],
             "type": "armeafeu",
             "degats": 1,
-            "discretion": "Visible",
-            "options": []
+            "munitions":0
         },
         "protection":{
-            "protection":1,
-            "discretion":"Visible"
+            "templates":["base","options"],
+            "protection":1
+        },
+        "capacite":{
+            "templates":["description"],
+            "limite":1
+        },
+        "cybernetique":{
+            "templates":["description","options"],
+            "capacitespeciale":""
         }
     }
 }

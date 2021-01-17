@@ -1,20 +1,63 @@
 {
     "nanochrome":{
+        "base":{
+            "description":"Description",
+            "type":"Type"
+        },
+        "armes":"Armes",
+        "item":{
+            "description":"Description",
+            "discretion":"Discrétion",
+            "options":"Options"
+        },
         "arme":{
+            "attaque":"Attaque",
             "type":"Type",
             "degats":"Dégats",
-            "discretion":"Discrétion",
-            "options":"Options",
             "types":{
                 "armedecorpsacorps":"Arme de corps à corps",
                 "armeafeu":"Arme à feu"
-            }
+            },
+            "discretion":"Discrétion"
         },
-        "base":{
-            "description":"Description"
+        "protections":"Protections",
+        "protection":{
+            "protection":"Protection"
         },
+        "nom":"Nom",
+        "cybernetique":{
+            "nom":"Cybernétique",
+            "neuronique":"Neuronique",
+            "nanogenetique":"Nanogénétique",
+            "panoptique":"Panoptique",
+            "prosthetique":"Prosthétique",
+            "renforcements":"Renforcements"
+        },
+        "capacitespeciale":"Capacité Spéciale",
+        "pointsdevie":"Point de vie",
+        "connexion":"Connexion",
+        "nexus":"Nexus",
+        "initiative":"Initiative",
+        "defense":"Défense",
+        "physique":"Physique",
+        "chance":"Chance",
+        "experience":"Expérience",
+        "yens":"Yens",
+        "risquesprouesses":"Risques & Prouesses",
+        "competences":"Compétences",
+        "capacites":"Capacités",
         "option":{
             "limite":"Limite"
+        },
+        "occupation":"Occupation",
+        "affiliation":"Affiliation",
+        "caracteristiques":{
+            "force":"FOR",
+            "dexterite":"DEX",
+            "constitution":"CON",
+            "intelligence":"INT",
+            "sagesse":"SAG",
+            "charisme":"CHA"
         }
     }
 }
