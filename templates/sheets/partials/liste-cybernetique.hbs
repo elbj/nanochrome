@@ -7,7 +7,11 @@
             <td><label class="item-edit editable">{{cyber.name}}</label><br/><small>({{data.capacitespeciale}})</small></td>
         </tr>
         <tr class="item" data-item-id="{{cyber._id}}">
-            <td>Options</td>
+            <td>
+                {{#each cyber.options as |option nom|}}
+                    <img class="item-img" src="{{option.img}}" title="{{option.name}} : {{option.data.description}}"/>
+                {{/each}}
+            </td>
             <td class="item-controls">
                 <a class="item-control item-edit editable" title="Edit Item"><i class="fas fa-edit"></i></a>
                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>

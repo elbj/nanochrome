@@ -35,12 +35,25 @@ export default class NanoActorSheet extends ActorSheet {
                 arme.data.attaque = dexterite;
                 arme.data.degatsTotaux = arme.data.degats + dexterite;
             }
+
+            arme.data.options = data.items.filter((item => { return (item.type === "option" 
+                                                                        && item.data.type === arme.data.type
+                                                                        && item.data.affectation === arme._id) }));
         })
 
         character.protections = data.items.filter((item => { return item.type === "protection" }));
         character.capacites = data.items.filter((item => { return item.type === "capacite" }));
         character.equipement = data.items.filter((item => { return item.type === "equipement" }));
         character.cybernetique = data.items.filter((item => { return item.type === "cybernetique" }));
+
+        character.cybernetique.forEach((cyber) =>{
+            var cyberTypeName = this.getOptionTypeKeyFromName(cyber.name);
+            cyber.options = data.items.filter((item => { return (item.type === "option" && item.data.type === cyberTypeName) }));
+        });
+
+        character.protections.forEach((cyber) =>{
+            cyber.options = data.items.filter((item => { return (item.type === "option" && item.data.type === cyber.type) }));
+        });
 
         var protection = 0;
         character.protections.forEach((prot) => {
@@ -74,7 +87,13 @@ export default class NanoActorSheet extends ActorSheet {
         // Delete Inventory Item
         html.find('.item-delete').click(ev => {
             const item = this.getItemFromEvent(ev);
-            this.actor.deleteOwnedItem(item._id);
+            let d = Dialog.confirm({
+                title: "Suppression d'élément",
+                content: "<p>Confirmer la suppression de '" + item.name + "'.</p>",
+                yes: () => this.actor.deleteOwnedItem(item._id),
+                no: () => {},
+                defaultYes: false
+               });
         });
 
         html.find('.roll-prouesse').click(ev =>{
@@ -126,5 +145,14 @@ export default class NanoActorSheet extends ActorSheet {
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
         return this.actor.getOwnedItem(parent.data("itemId"));
+    }
+
+    getOptionTypeKeyFromName(optionTypeName){
+        for(var optionType in CONFIG.nanochrome.optionTypes){
+            if(CONFIG.nanochrome.optionTypes[optionType] === optionTypeName){
+                return optionType;
+            }
+        }
+        return null;
     }
 }
