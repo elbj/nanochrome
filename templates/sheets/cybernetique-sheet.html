@@ -12,5 +12,15 @@
             <label for="data.capacitespeciale">{{localize 'nanochrome.capacitespeciale'}}</label>
             <textarea name="data.capacitespeciale">{{data.capacitespeciale}}</textarea>
         </div>
+        <div>
+            <label for="data.type">{{localize 'nanochrome.type'}}</label>
+            <select name="data.type">
+                {{#select data.type}}
+                {{#each config.optionTypes as |name type|}}
+                <option value="{{type}}">{{name}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+        </div>
     </div>
 </form>
