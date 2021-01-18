@@ -105,7 +105,8 @@
         },
         "cybernetique":{
             "templates":["description","options"],
-            "capacitespeciale":""
+            "capacitespeciale":"",
+            "type":""
         }
     }
 }
