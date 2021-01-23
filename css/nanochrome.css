@@ -302,6 +302,14 @@
   background-color: black;
 }
 
+.nanochrome .small-item-img {
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  background-color: black;
+}
+
 .nanochrome .smallInput input[type="number"] {
   width: 50px;
   text-align: center;

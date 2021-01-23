@@ -116,24 +116,28 @@ export default class NanoActorSheet extends ActorSheet {
             const arme = ev.currentTarget.dataset["arme"];
             let attaque = Number(ev.currentTarget.dataset["attaque"]);
             let degats = Number(ev.currentTarget.dataset["degats"]);
-            let d6Roll = new Roll("2d6 + 1d6x6");
-            d6Roll.evaluate();
-            attaque += d6Roll.total;
-            degats += d6Roll.dice[1].total;
-            d6Roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: `Attaque avec ${arme} : ${attaque} => ${degats}.`
+            this.askForRollModifier(modif => {
+                let d6Roll = new Roll("2d6 + 1d6x6 + " + modif);
+                d6Roll.evaluate();
+                attaque += d6Roll.total;
+                degats += d6Roll.dice[1].total;
+                d6Roll.toMessage({
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    flavor: `Attaque avec ${arme} : ${attaque} => ${degats}.`
+                });
             });
         });
 
         html.find('.roll-caracteristique').click(ev => {
             const nom = ev.currentTarget.dataset["nom"];
             const valeur = ev.currentTarget.dataset["valeur"];
-            let d6Roll = new Roll("2d6 + 1d6 +" + valeur);
-            d6Roll.evaluate();
-            d6Roll.toMessage({
-                speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-                flavor: `Teste ${nom}.`
+            this.askForRollModifier(modif => {
+                let d6Roll = new Roll("2d6 + 1d6 +" + valeur + " + " + modif);
+                d6Roll.evaluate();
+                d6Roll.toMessage({
+                    speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+                    flavor: `Teste ${nom}.`
+                });
             });
         });
 
@@ -170,6 +174,26 @@ export default class NanoActorSheet extends ActorSheet {
                 break;
         }
         this.actor.deleteOwnedItem(item._id);
+    }
+
+    askForRollModifier(callback) {
+        return new Dialog({
+            title: "Modificateur",
+            content: "<input type='Number' id='mod' name='mod' value='0'/>",
+            buttons: {
+                ok: {
+                    icon: '<i class="fas fa-check"></i>',
+                    label: "Ok",
+                    callback: (html) => {
+                        var modif = html.find('#mod').val();
+                        callback(modif)
+                    }
+                }
+            },
+            default: "ok",
+            render: html => { },
+            close: html => { }
+        }).render(true);
     }
 
     async _onDropItem(event, data) {
