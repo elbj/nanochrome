@@ -61,7 +61,7 @@
                 "parefeu":0,
                 "options":[]
             },
-            "competences":"",
+            "competences":[],
             "capacites":[],
             "armes":[],
             "protections":[],
@@ -70,7 +70,7 @@
         }
     },
     "Item":{
-        "types":["option", "arme", "protection", "munition", "capacite", "cybernetique"],
+        "types":["option", "arme", "protection", "munition", "capacite", "cybernetique", "competence"],
         "templates":{
             "options":{
                 "options": []
@@ -83,6 +83,7 @@
                 "description":""
             }
         },
+        "competence":{},
         "option":{
             "templates":["description"],
             "limite":1,
@@ -90,13 +91,13 @@
             "affectation":""
         },
         "arme":{            
-            "templates":["base","options"],
+            "templates":["base"],
             "type": "armeafeu",
             "degats": 1,
             "munitions":0
         },
         "protection":{
-            "templates":["base","options"],
+            "templates":["base"],
             "protection":1
         },
         "capacite":{

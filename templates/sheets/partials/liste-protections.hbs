@@ -1,7 +1,7 @@
 <div class="sheet-block protections">
     <h3>{{localize 'nanochrome.protections'}}</h3>
     {{#ifCond data.protections.length "===" 0}}
-    Aucune protection.
+    <small>Aucune protection.</small>
     {{else}}
     <table>
         <tr>
@@ -11,21 +11,25 @@
             <th>{{localize 'nanochrome.item.discretion'}}</th>
         </tr>
         {{#each data.protections as |protection id| }}
-        <tr data-item-id="{{item._id}}">
+        <tr class="item" data-item-id="{{protection._id}}">
             <td rowspan="2"><img class="item-img" src="{{protection.img}}" title="{{protection.name}}" height="32" width="32" /></td>
-            <td>{{protection.name}}</td>
+            <td><span class="item-edit editable"><strong>{{protection.name}}</strong></span></td>
             <td>{{protection.data.protection}}</td>
             <td>{{protection.data.discretion}}</td>
+            <td class="item-controls">
+                <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
+            </td>
         </tr>
         <tr>
-            <td></td>
-            <td colspan="3">
+            <td colspan="4">
                 {{#ifCond protection.data.options.length "===" 0}}
-                Aucune option.
+                <small>Aucune option.</small>
                 {{else}}
-                {{#each protection.data.options as |option|}}
-                <span>{{option.name}}, </span>
+                <ul>
+                {{#each protection.data.options as |option id|}}
+                <li>{{option.name}} : {{option.data.description}}</li>
                 {{/each}}
+                </ul>
                 {{/ifCond}}
             </td>
         </tr>

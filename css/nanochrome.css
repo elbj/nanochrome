@@ -381,6 +381,10 @@
   text-transform: uppercase;
 }
 
+.nanochrome .tab {
+  height: 100%;
+}
+
 .nanochrome .tabs {
   height: 40px;
   border-top: 1px solid #AAA;

@@ -13,7 +13,8 @@ nanochrome.optionTypes = {
     nanogenetique:"Nanogénétique",
     panoptique:"Panoptique",
     prosthetique:"Prosthétique",
-    renforcements:"Renforcement"
+    renforcements:"Renforcement",
+    cosmetique:"Cosmétique"
 }
 
 nanochrome.caracteristiques = {

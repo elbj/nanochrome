@@ -1,5 +1,15 @@
 export default class NanoActorSheet extends ActorSheet {
-
+/*
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+          classes: ["nanochrome", "sheet", "actor"],
+          template: "systems/nanochrome/templates/sheets/personnage-sheet.html",
+          width: 600,
+          height: 600,
+          tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "tab1" }]
+        });
+      }
+*/
     get template() {
         console.log("Nanochrome | Loading " + this.actor.data.type);
         return `systems/nanochrome/templates/sheets/${this.actor.data.type}-sheet.html`;
@@ -44,9 +54,17 @@ export default class NanoActorSheet extends ActorSheet {
         })
 
         character.protections = data.items.filter((item => { return item.type === "protection" }));
+        character.protections.forEach((protection) => {
+            protection.data.options = data.items.filter((item => {
+                return (item.type === "option"
+                    && item.data.affectation === protection._id)
+            }));
+        })
+
         character.capacites = data.items.filter((item => { return item.type === "capacite" }));
         character.equipement = data.items.filter((item => { return item.type === "equipement" }));
         character.cybernetique = data.items.filter((item => { return item.type === "cybernetique" }));
+        character.competences = data.items.filter((item => { return item.type === "competence" }));
 
         character.cybernetique.forEach((cyber) => {
             var cyberTypeName = this.getOptionTypeKeyFromName(cyber.name);
@@ -159,7 +177,7 @@ export default class NanoActorSheet extends ActorSheet {
                 break;
             case "protection":
                 this.actor.items.forEach(actorItem => {
-                    if (actorItem.data.type === "protection") {
+                    if (actorItem.data.data.affectation === item.id) {
                         this.deleteItem(actorItem);
                     }
                 })
@@ -179,7 +197,7 @@ export default class NanoActorSheet extends ActorSheet {
     askForRollModifier(callback) {
         return new Dialog({
             title: "Modificateur",
-            content: "<input type='Number' id='mod' name='mod' value='0'/>",
+            content: "<label>Modificateur : </label><input type='Number' id='mod' name='mod' value='0'/></label>",
             buttons: {
                 ok: {
                     icon: '<i class="fas fa-check"></i>',
@@ -234,9 +252,11 @@ export default class NanoActorSheet extends ActorSheet {
 
                     break;
                 case "protection":
-                    if (this.actor.data.items.find(item => item.type === "protection") == undefined) {
+                    var protections = this.actor.data.items.filter(item => item.type === "protection");
+                    if (protections.length === 0) {
                         throw new Error("Vous devez porter une protection pour pouvoir acquérir cette option.")
                     }
+                    await this.affectContainer(protections, itemData);
                     break;
                 case "neuronique":
                 case "nanogenetique":
