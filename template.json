@@ -6,6 +6,8 @@
         ],
         "templates": {
             "persoBase": {
+                "affiliation": "",
+                "occupation": "",
                 "pointsdevie": {
                     "actuel": 0,
                     "bonus": {
@@ -64,8 +66,6 @@
             "templates": [
                 "persoBase"
             ],
-            "affiliation": "",
-            "occupation": "",
             "caracteristiques": {
                 "force": {
                     "valeur": 0
