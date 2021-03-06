@@ -17,77 +17,7 @@ export default class NanoActorSheet extends ActorSheet {
 
     getData() {
         const data = super.getData();
-        data.config = CONFIG.nanochrome;
-
-        console.log(data);
-
-        const character = data.data;
-
-        for (var nom in character.caracteristiques) {
-            var caracteristique = character.caracteristiques[nom];
-            caracteristique.nom = data.config.caracteristiques[nom];
-        }
-
-        var force = character.caracteristiques["force"].valeur;
-        var dexterite = character.caracteristiques["dexterite"].valeur;
-        var constitution = character.caracteristiques["constitution"].valeur;
-        var sagesse = character.caracteristiques["sagesse"].valeur;
-        var intelligence = character.caracteristiques["intelligence"].valeur;
-        var charisme = character.caracteristiques["charisme"].valeur;
-
-        character.armes = data.items.filter((item => { return item.type === "arme" }));
-        character.armes.forEach((arme) => {
-            if (arme.data.type === "armedecorpsacorps") {
-                arme.data.attaque = force;
-                arme.data.degatsTotaux = arme.data.degats + force;
-            }
-            else {
-                arme.data.attaque = dexterite;
-                arme.data.degatsTotaux = arme.data.degats + dexterite;
-            }
-
-            arme.data.options = data.items.filter((item => {
-                return (item.type === "option"
-                    && item.data.type === arme.data.type
-                    && item.data.affectation === arme._id)
-            }));
-        })
-
-        character.protections = data.items.filter((item => { return item.type === "protection" }));
-        character.protections.forEach((protection) => {
-            protection.data.options = data.items.filter((item => {
-                return (item.type === "option"
-                    && item.data.affectation === protection._id)
-            }));
-        })
-
-        character.capacites = data.items.filter((item => { return item.type === "capacite" }));
-        character.equipement = data.items.filter((item => { return item.type === "equipement" }));
-        character.cybernetique = data.items.filter((item => { return item.type === "cybernetique" }));
-        character.competences = data.items.filter((item => { return item.type === "competence" }));
-
-        character.cybernetique.forEach((cyber) => {
-            var cyberTypeName = this.getOptionTypeKeyFromName(cyber.name);
-            cyber.options = data.items.filter((item => { return (item.type === "option" && item.data.type === cyberTypeName) }));
-        });
-
-        character.protections.forEach((cyber) => {
-            cyber.options = data.items.filter((item => { return (item.type === "option" && item.data.type === cyber.type) }));
-        });
-
-        var protection = 0;
-        character.protections.forEach((prot) => {
-            protection += prot.data.protection;
-        })
-        character.defense.protection = protection;
-        character.defense.valeur = 7 + sagesse + protection + character.defense.bonus.cyber + character.defense.bonus.capacite;
-
-        character.connexion.max = intelligence + character.connexion.bonus.nexus + character.connexion.bonus.cyber + character.connexion.bonus.capacite;
-        character.chance.max = charisme + character.chance.bonus.capacite;
-
-        var pointsdevie = 5 + 5 * constitution + character.pointsdevie.bonus.cyber + character.pointsdevie.bonus.capacite;
-        character.pointsdevie.max = pointsdevie - 5 * character.blessures.actuel;
-        character.blessures.max = pointsdevie / 5;
+        data.config = CONFIG.nanochrome;        
         return data;
     }
 
@@ -162,6 +92,13 @@ export default class NanoActorSheet extends ActorSheet {
         html.find('.blessureLevel').click(ev => {
             let level = Number(ev.currentTarget.dataset["valeur"]);
             this.actor.update({ "data.blessures.actuel": level });
+            this.actor.sheet.render(true);
+        });
+
+        html.find('.checkboxClick').click(ev => {
+            const item = this.getItemFromEvent(ev);
+            const update = {_id: item._id, data : { estPortee : !item.data.data.estPortee}};
+            this.actor.updateEmbeddedEntity("OwnedItem", update);
             this.actor.sheet.render(true);
         });
     }
@@ -304,14 +241,5 @@ export default class NanoActorSheet extends ActorSheet {
     getItemFromEvent = (ev) => {
         const parent = $(ev.currentTarget).parents(".item");
         return this.actor.getOwnedItem(parent.data("itemId"));
-    }
-
-    getOptionTypeKeyFromName(optionTypeName) {
-        for (var optionType in CONFIG.nanochrome.optionTypes) {
-            if (CONFIG.nanochrome.optionTypes[optionType] === optionTypeName) {
-                return optionType;
-            }
-        }
-        return null;
     }
 }

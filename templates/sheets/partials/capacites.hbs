@@ -6,11 +6,13 @@
     <table>
         {{#each data.capacites as |capacite id| }}
         <tr class="item" data-item-id="{{capacite._id}}">
-            <td><span class="item-edit editable"></span>{{capacite.name}} ({{capacite.data.limite}})</td>
-            <td>{{capacite.data.decription}}</td>
+            <td><span class="item-edit editable"></span><strong>{{capacite.name}}</strong> ({{capacite.data.limite}})</td>
             <td class="item-controls">
                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </td>
+        </tr>
+        <tr>
+            <td colspan="2">{{capacite.data.description}}</td>
         </tr>
         {{/each}}
     </table>

@@ -1,0 +1,22 @@
+<form class="{{cssClass}} nanochrome personnage" autocomplete="off">
+    <header class="sheet-header">
+        <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="128" width="128" />
+        <div class="col">
+            {{> "systems/nanochrome/templates/sheets/partials/profil.hbs"}}
+            <div class="grid-2col">
+                {{> "systems/nanochrome/templates/sheets/partials/risques-et-prouesses.hbs"}}
+                {{> "systems/nanochrome/templates/sheets/partials/pnj-stats.hbs"}}
+            </div>
+        </div>
+    </header>
+
+    <div class="sheet-body">
+        <div class="listes">
+            {{> "systems/nanochrome/templates/sheets/partials/liste-armes.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-protections.hbs"}}
+            {{> "systems/nanochrome/templates/sheets/partials/liste-cybernetique.hbs"}}
+        </div>
+    </div>
+
+    
+</form>

@@ -9,6 +9,7 @@
             <th></th>
             <th>{{localize 'nanochrome.protection.protection'}}</th>
             <th>{{localize 'nanochrome.item.discretion'}}</th>
+            <th>Portée</th>
         </tr>
         {{#each data.protections as |protection id| }}
         <tr class="item" data-item-id="{{protection._id}}">
@@ -16,6 +17,7 @@
             <td><span class="item-edit editable"><strong>{{protection.name}}</strong></span></td>
             <td>{{protection.data.protection}}</td>
             <td>{{protection.data.discretion}}</td>
+            <td><input type="checkbox" class="checkboxClick" {{checked protection.data.estPortee}}/> </td>
             <td class="item-controls">
                 <a class="item-control item-delete" title="Delete Item"><i class="fas fa-trash"></i></a>
             </td>
