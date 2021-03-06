@@ -24,7 +24,8 @@ export const preloadHandlebarsTemplates = async function () {
         "systems/nanochrome/templates/sheets/partials/competences.hbs",
         "systems/nanochrome/templates/sheets/partials/capacites.hbs",
         "systems/nanochrome/templates/sheets/partials/yens.hbs",
-        "systems/nanochrome/templates/sheets/partials/pnj-stats.hbs"
+        "systems/nanochrome/templates/sheets/partials/pnj-stats.hbs",
+        "systems/nanochrome/templates/sheets/partials/experience.hbs"
     ];
 
     // Load the template parts
